@@ -1,0 +1,47 @@
+@import '@/styles/vars';
+.section{
+    color: white;
+    background: url('../../assets/images/hero-bg.webp');
+    background-size: cover;
+}
+.container{
+    padding: 45px 0 0;
+    width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.heading{
+    font-size: 222px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+.text{
+    color: $paragraph-dark;
+    max-width: 402px;
+    text-align: center;
+    line-height: 1.5;
+}
+.formTitle{
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-top: 80px;
+}
+.form{
+    margin-top: 30px;
+}
+.search{
+    border-radius: 6px;
+    overflow: hidden;
+    border-bottom: 1px solid white;
+}
+.deliveryInput{
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    font-size: 14px;
+    color: white;
+    &::placeholder{
+        color: rgba(255, 255, 255, 0.35);
+    }
+}
