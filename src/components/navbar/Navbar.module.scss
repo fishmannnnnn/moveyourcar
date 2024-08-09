@@ -1,10 +1,12 @@
 @import '@/styles/vars';
 .header {
 	color: white;
+	backdrop-filter: blur(10px);
+	background: transparent;
 }
-.headerTop{
-    border-bottom: 1px solid $line-dark-bg;
-    padding: 15px 50px;
+.headerTop {
+	border-bottom: 1px solid $line-dark-bg;
+	padding: 15px 50px;
 }
 .headerTopInner {
 	max-width: 1340px;
@@ -25,13 +27,16 @@
 	gap: 10px;
 }
 .number {
+	cursor: pointer;
 	line-height: 1.5;
 	span {
 		color: rgba(255, 255, 255, 0.5);
 	}
 }
-.headerBottom{
-    padding: 15px 50px;
+.headerBottom {
+	padding: 15px 50px;
+	position: relative;
+	z-index: 2;
 }
 .headerBottomInner {
 	max-width: 1340px;
@@ -41,9 +46,94 @@
 	align-items: center;
 }
 .logo {
+	width: 107px;
 	color: $accent-color;
+	cursor: pointer;
+}
+.languageSelect {
+	display: none;
 }
 .nav {
+	ul {
+		display: flex;
+		gap: 29.8px;
+	}
+}
+.contactsMobile{
+	display: none;
+	align-items: center;
+	padding: 20px 40px 20px;
+	justify-content: space-between;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	flex-wrap: wrap;
+	gap: 15px;
+	.contacts{
+		gap: 15px;
+	}
+}
+.navLink:hover {
+	opacity: 0.5;
+}
+.navRight {
 	display: flex;
-	gap: 29.8px;
+	align-items: center;
+	gap: 20px;
+}
+.menuButton {
+	display: none;
+}
+@media screen and (max-width: 1439px) {
+	.heading {
+		font-size: 14vw;
+	}
+}
+@media screen and (max-width: 1279px) {
+}
+@media screen and (max-width: 991px) {
+	.header {
+		border-bottom: 1px solid $line-dark-bg;
+	}
+	.headerTop {
+		display: none;
+	}
+	.headerBottom {
+		padding: 25px 20px;
+	}
+	.menuButton {
+		display: block;
+	}
+	.contactsMobile{
+		display: flex;
+	}
+	.languageSelect {
+		display: block;
+	}
+	.nav {
+		overflow: hidden;
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		top: 82px;
+		left: 0;
+		background: rgba(0, 0, 0, 0.85);
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
+		transition: max-height 0.5s ease-in-out;
+		max-height: 0;
+		ul {
+			padding: 20px 40px 40px;
+			flex-direction: column;
+			gap: 40px;
+		}
+	}
+	.navMobile {
+		max-height: 100vh;
+	}
+	.navLink {
+		font-size: 24px;
+	}
+}
+@media screen and (max-width: 767px) {
+}
+@media screen and (max-width: 479px) {
 }

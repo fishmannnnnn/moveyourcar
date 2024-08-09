@@ -1,47 +1,208 @@
 @import '@/styles/vars';
-.section{
-    color: white;
-    background: url('../../assets/images/hero-bg.webp');
-    background-size: cover;
+.section {
+	color: white;
+	background: url('../../assets/images/hero-bg.webp');
+	background-size: cover;
+	background-position: center;
+    position: relative;
 }
-.container{
-    padding: 45px 0 0;
-    width: fit-content;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.navbarWrapper{
+    position: relative;
+    z-index: 1;
 }
-.heading{
-    font-size: 222px;
-    letter-spacing: -0.04em;
-    line-height: 1;
+.dashLeft,
+.dashRight {
+	width: 450px;
+	height: 364px;
+    position: absolute;
+    bottom: 0;
 }
-.text{
-    color: $paragraph-dark;
-    max-width: 402px;
-    text-align: center;
-    line-height: 1.5;
+.dashLeft{
+    left: 0;
 }
-.formTitle{
-    text-transform: uppercase;
-    font-size: 24px;
-    margin-top: 80px;
+.dashRight{
+    right: 0;
 }
-.form{
-    margin-top: 30px;
+.container {
+	overflow: hidden;
+	padding: 45px 0 70px;
+	width: fit-content;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-.search{
-    border-radius: 6px;
-    overflow: hidden;
-    border-bottom: 1px solid white;
+.heading {
+	font-size: 222px;
+	letter-spacing: -0.04em;
+	line-height: 1;
 }
-.deliveryInput{
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    font-size: 14px;
-    color: white;
-    &::placeholder{
-        color: rgba(255, 255, 255, 0.35);
+.text {
+	color: $paragraph-dark;
+	max-width: 402px;
+	text-align: center;
+	line-height: 1.5;
+}
+.formTitle {
+	text-transform: uppercase;
+	font-size: 24px;
+	margin-top: 80px;
+	position: relative;
+	&::before {
+		position: absolute;
+		content: '';
+		display: inline-block;
+		width: 540px;
+		height: 1px;
+		left: 50%;
+		transform: translateX(-50%);
+		right: 0;
+		top: -50px;
+		background: $line-dark-bg;
+	}
+}
+.form {
+	flex-shrink: 0;
+	width: 100%;
+	margin-top: 30px;
+	max-width: 500px;
+	position: relative;
+	&::before {
+		position: absolute;
+		content: '';
+		display: block;
+		width: 1px;
+		height: 100vh;
+		left: -20px;
+		top: -454px;
+		right: 0;
+		background: $line-dark-bg;
+	}
+	&::after {
+		position: absolute;
+		content: '';
+		display: block;
+		width: 1px;
+		height: 100vh;
+		right: -20px;
+		top: -454px;
+		background: $line-dark-bg;
+	}
+}
+.search {
+	border-radius: 6px;
+	overflow: hidden;
+	border-bottom: 1px solid white;
+	position: relative;
+	&::after {
+		position: absolute;
+		content: '';
+		display: inline-block;
+		background: $line-dark-bg;
+		width: 1px;
+		height: 36px;
+		left: 50%;
+		right: 0;
+		bottom: 0;
+	}
+}
+.deliveryInput {
+	width: 50%;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 15px;
+	font-size: 14px;
+	color: white;
+	position: relative;
+	&::placeholder {
+		color: rgba(255, 255, 255, 0.35);
+	}
+	&:first-of-type::after {
+		content: '';
+		position: absolute;
+		z-index: 5;
+		top: 10px;
+		right: 0;
+		left: 0;
+		width: 1px;
+		height: 36px;
+		background: #000;
+	}
+}
+.transportOptions {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	gap: 35px;
+	label {
+		cursor: pointer;
+		display: flex;
+		gap: 10px;
+        flex-shrink: 0;
+	}
+}
+.submit {
+	margin-top: 50px;
+}
+
+@media screen and (max-width: 1439px) {
+	.heading {
+		font-size: 14vw;
+	}
+    .dashLeft, .dashRight{
+        display: none;
+    }
+}
+@media screen and (max-width: 1279px) {
+}
+@media screen and (max-width: 991px) {
+    // .formTitle::before,
+    .form::before,
+    .form::after{
+        content: none;
+    }
+}
+@media screen and (max-width: 767px) {
+	.search::after {
+		height: 1px;
+		width: 100%;
+		top: 50%;
+		left: 15px;
+	}
+	.deliveryInput {
+		width: 100%;
+	}
+    .container{
+        padding: 70px 0 50px;
+    }
+    .text{
+        margin-top: 10px;
+    }
+    .formTitle{
+        margin-top: 85px;
+    }
+    .search{
+        margin-top: 20px;
+    }
+    .submit{
+        margin-top: 35px;
+    }
+}
+@media screen and (max-width: 479px) {
+    .section{
+	    background-position: 20%/50%;
+    }
+	.heading {
+		font-size: 14.5vw;
+	}
+	.text {
+		font-size: 14px;
+	}
+	.formTitle {
+		font-size: 18px;
+	}
+    .transportOptions{
+        gap: 10px;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 }
