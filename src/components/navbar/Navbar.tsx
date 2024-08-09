@@ -13,7 +13,7 @@ import LanguageSelect from '../language-select/LanguageSelect';
 import ButtonTransparent from '../buttons/buttonTransparent/ButtonTransparent';
 
 const Navbar = () => {
-	const [menuVisible, setMenuVisible] = useState(true);
+	const [menuVisible, setMenuVisible] = useState(false);
 	const navRef = useRef<HTMLElement>(null);
 	const showMenu = () => {
 		let navEl: HTMLElement | null = navRef.current;
@@ -41,7 +41,7 @@ const Navbar = () => {
 							</a>
 						</div>
 						<a className={styles.number} href='tel:+19372723744'>
-							<span>+</span>1 <span>[</span>937<span>]</span>{' '}
+							<span>+</span>1 ­<span>[</span>937<span>]</span>­
 							272-37-44
 						</a>
 					</div>
@@ -69,13 +69,13 @@ const Navbar = () => {
 								<a
 									className={styles.number}
 									href='tel:+19372723744'>
-									<span>+</span>1 <span>[</span>937
-									<span>]</span> 272-37-44
+									<span>+</span>1 ­<span>[</span>937
+									<span>] ­</span> 272-37-44
 								</a>
 							</div>
-						<div className={styles.languageSelect}>
-							<LanguageSelect />
-						</div>
+							<div className={styles.languageSelect}>
+								<LanguageSelect />
+							</div>
 						</div>
 						<ul>
 							{LINKS.map((link) => (
@@ -88,9 +88,33 @@ const Navbar = () => {
 					<div className={styles.navRight}>
 						<ButtonTransparent text='Get a quote' />
 						<button
-							className={styles.menuButton}
+							className={
+								menuVisible
+									? styles.closeMenuButton
+									: styles.menuButton
+							}
 							onClick={() => showMenu()}>
-							<Image src={menu} alt='menu'></Image>
+							<span
+								className={cn(
+									!menuVisible
+										? styles.line
+										: styles.lineFirst,
+									styles.animatedLine
+								)}></span>
+							<span
+								className={cn(
+									!menuVisible
+										? styles.line
+										: styles.lineInvisible,
+									styles.animatedLine
+								)}></span>
+							<span
+								className={cn(
+									!menuVisible
+										? styles.line
+										: styles.lineLast,
+									styles.animatedLine
+								)}></span>
 						</button>
 					</div>
 				</div>

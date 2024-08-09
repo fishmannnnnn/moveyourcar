@@ -25,6 +25,10 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	a img{
+		display: flex;
+		align-self: center;
+	}
 }
 .number {
 	cursor: pointer;
@@ -80,7 +84,51 @@
 	gap: 20px;
 }
 .menuButton {
+	position: relative;
 	display: none;
+	flex-direction: column;
+	place-content: center;
+	justify-content: space-between;
+	align-items: center;
+	height: 16px;
+	width: 20.5px;
+}
+.closeMenuButton {
+	position: relative;
+	display: none;
+	flex-direction: column;
+	place-content: center;
+	align-items: center;
+	height: 16px;
+	width: 20.5px;
+}
+.animatedLine{
+	transition: .2s all ease;
+}
+.line{
+	width: 20.5px;
+	height: 2px;
+	border-radius: 10px;
+	background: $accent-color;
+}
+.lineFirst{
+	width: 20.5px;
+	height: 2px;
+	border-radius: 10px;
+	background: $accent-color;
+	width: 100%;
+	rotate: 45deg;
+}
+.lineLast{
+	width: 20.5px;
+	height: 2px;
+	border-radius: 10px;
+	background: $accent-color;
+	rotate: -45deg;
+	position: absolute;
+}
+.lineInvisible{
+	opacity: 0;
 }
 @media screen and (max-width: 1439px) {
 	.heading {
@@ -99,8 +147,8 @@
 	.headerBottom {
 		padding: 25px 20px;
 	}
-	.menuButton {
-		display: block;
+	.menuButton, .closeMenuButton {
+		display: flex;
 	}
 	.contactsMobile{
 		display: flex;
